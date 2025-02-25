@@ -1,9 +1,8 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-/** @type {import('vite').UserConfig} */
 export default defineConfig({
-  plugins: [
+	plugins: [
 		react({
 			jsxRuntime: 'automatic',
 		}),
@@ -13,6 +12,7 @@ export default defineConfig({
     port: 3000,
   },
   preview: {
-	  port: 8080
-  }
+    host: 'localhost',
+    port: 8080
+  },
 });
