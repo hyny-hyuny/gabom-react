@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  base: '/gabom-react/',
+  base: '/',
   plugins: [
     tailwindcss(),
     react({
