@@ -10,7 +10,7 @@ function NavItem({
   label,
   path,
   currentPath,
-  Svg,
+  Icon,
   handleCurrentPage,
 }: NavItemProps) {
   const isCurrent = path === currentPath;
@@ -26,8 +26,8 @@ function NavItem({
         to={path}
         onClick={handleNavLink}
       >
-        <Svg width={24} />
-        <span className='text-xs/relaxed'>{label}</span>
+        <Icon width={24} />
+        <span className='text-xs/relaxed font-medium'>{label}</span>
       </NavLink>
     </li>
   );
