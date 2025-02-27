@@ -1,3 +1,4 @@
+import NavBar from '@/components/molecules/NavBar';
 import { Outlet } from 'react-router';
 
 function Layout() {
@@ -5,6 +6,7 @@ function Layout() {
     <div className="layout">
       <h1>Layout</h1>
       <Outlet />
+      <NavBar />
     </div>
   );
 }
