@@ -1,5 +1,11 @@
+import TabNav from '../molecules/TabNav';
+
 function MyPage() {
-  return <section>MyPage</section>;
+  return (
+    <section>
+      <TabNav />
+    </section>
+  );
 }
 
 export default MyPage;
