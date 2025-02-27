@@ -3,7 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["vite-plugin-svgr/client"],
   },
   "files": [],
   "references": [
@@ -13,5 +14,6 @@
     {
       "path": "./tsconfig.node.json"
     }
-  ]
+  ],
+  "include": ["index.d.ts"],
 }
