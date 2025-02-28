@@ -6,7 +6,6 @@ function BackBtn() {
 
   const handleBack = () => {
     void navigate(-1);
-    console.log('back click');
   };
 
   return (
