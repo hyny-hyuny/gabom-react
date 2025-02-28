@@ -1,3 +1,19 @@
-@import "@/styles/tailwind.css";
-@import "@/styles/components/tabNav.css";
-@import "@/styles/components/navBar.css";
+@import '@/styles/tailwind.css';
+@import '@/styles/components/tabNav.css';
+@import '@/styles/components/navBar.css';
+
+body {
+  background-color: rgba(255, 238, 199, 1);
+}
+
+@layer components {
+  .layout {
+    background-color: white;
+    min-width: 20rem; /* 320px */
+    max-width: 31.25rem; /* 500px */
+    height: 100vh;
+    margin: 0 auto;
+    padding-top: 2.75rem; /* 44px */
+    position: relative;
+  }
+}
