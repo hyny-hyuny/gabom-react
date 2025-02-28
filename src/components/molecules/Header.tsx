@@ -9,7 +9,11 @@ interface HeaderProps {
 
 function Header({ depth = false }: HeaderProps) {
   return (
-    <header className={tm('w-full h-11', 'header')}>
+    <header
+      className={tm(
+        'w-full h-11 flex items-center justify-center px-custom-6 fixed top-0 min-w-[20rem] max-w-[31.25rem]'
+      )}
+    >
       {depth ? (
         <>
           <h1 className="sr-only">가봄</h1>
