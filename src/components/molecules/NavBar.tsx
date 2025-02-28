@@ -11,14 +11,14 @@ export type NavItemPath = '/exhibition' | '/place' | '/review' | '/my';
 export interface NavItemData {
   label: string;
   path: NavItemPath;
-  Svg: React.FC<React.SVGProps<SVGSVGElement>>;
+  Icon: React.FC<React.SVGProps<SVGSVGElement>>;
 }
 
 const navItems: NavItemData[] = [
-  { label: '전시', Svg: ExhibitionIcon, path: '/exhibition' },
-  { label: '장소', Svg: PlaceIcon, path: '/place' },
-  { label: '리뷰', Svg: ReviewIcon, path: '/review' },
-  { label: 'MY', Svg: MyIcon, path: '/my' },
+  { label: '전시', Icon: ExhibitionIcon, path: '/exhibition' },
+  { label: '장소', Icon: PlaceIcon, path: '/place' },
+  { label: '리뷰', Icon: ReviewIcon, path: '/review' },
+  { label: 'MY', Icon: MyIcon, path: '/my' },
 ];
 
 const getPath = (): NavItemPath => {
@@ -45,7 +45,7 @@ function NavBar() {
   });
 
   return (
-    <nav className='px-6 pb-3 inset-shadow-xs'>
+    <nav className='px-6 pb-3 nav-inner-border-top'>
       <ul className={'flex'}>{navItemsMap}</ul>
     </nav>
   );
