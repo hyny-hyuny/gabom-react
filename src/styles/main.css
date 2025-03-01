@@ -1,6 +1,7 @@
 @import '@/styles/tailwind.css';
 @import '@/styles/components/tabNav.css';
 @import '@/styles/components/navBar.css';
+@import "@/styles/components/reviewCard.css";
 
 body {
   background-color: rgba(255, 238, 199, 1);
