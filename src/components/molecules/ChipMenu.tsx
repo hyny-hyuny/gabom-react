@@ -5,20 +5,14 @@ export interface ChipMenuData {
   status: boolean;
 }
 
-function ChipMenu() {
-  const categoryList: ChipMenuData[] = [
-    { label: '전체', status: true },
-    { label: '지역별', status: false },
-    { label: '무료전시', status: false },
-    { label: '연령대별', status: false },
-    { label: '마감임박', status: false },
-  ];
+interface ChipMenuProps {
+  list: ChipMenuData[];
+}
 
-  // 리스트 렌더링 할 떄 필터역할하는 chipmenu
-
+function ChipMenu({ list }: ChipMenuProps) {
   return (
     <ul>
-      {categoryList.map((item, index) => {
+      {list.map((item, index) => {
         return (
           <li key={index}>
             <ChipBtn label={item.label} ispress={item.status} />
