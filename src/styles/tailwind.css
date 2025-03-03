@@ -109,3 +109,14 @@
     @apply text-2xl font-normal; /* 24px, 400 */
   }
 }
+
+/* 스크롤바 숨기기 */
+@layer utilities {
+  .hide-scrollbar {
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    scrollbar-width: none;
+  }
+}
