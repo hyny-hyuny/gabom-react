@@ -1,3 +1,4 @@
+import { tm } from '@/utils/tw-merge';
 import ChipBtn from '../atoms/ChipBtn';
 
 export interface ChipMenuData {
@@ -11,21 +12,23 @@ interface ChipMenuProps {
 }
 
 function ChipMenu({ list, size }: ChipMenuProps) {
-  // 리스트 렌더링 할 떄 필터역할하는 chipmenu
-
-  console.log(list);
-  // console.log(size);
-
   return (
-    <ul>
-      {list.map((item, index) => {
-        return (
-          <li key={index}>
-            <ChipBtn label={item.label} isPress={item.status} size={size} />
-          </li>
-        );
-      })}
-    </ul>
+    <div className={tm('overflow-x-auto')}>
+      <ul
+        className={tm(
+          'w-max h-[50px] px-custom-6 flex items-center',
+          size === 'medium' ? 'gap-custom-1' : 'gap-custom-6'
+        )}
+      >
+        {list.map((item, index) => {
+          return (
+            <li key={index} className="shrink-0">
+              <ChipBtn label={item.label} isPress={item.status} size={size} />
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 }
 
