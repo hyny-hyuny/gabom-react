@@ -1,4 +1,4 @@
-import ImageField from '../atoms/imageField';
+import ImageField from '../atoms/ImageField';
 import Tag from '../atoms/Tag';
 
 interface ReviewCardProps {
