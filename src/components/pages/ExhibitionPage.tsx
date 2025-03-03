@@ -10,17 +10,18 @@ const categoryList: ChipMenuData[] = [
 
 const regionList: ChipMenuData[] = [
   { label: '전체', status: true },
-  { label: '서울', status: true },
-  { label: '강원도', status: true },
-  { label: '부산', status: true },
+  { label: '서울', status: false },
+  { label: '강원도', status: false },
+  { label: '부산', status: false },
+  { label: '타지역', status: false },
 ];
 
 function ExhibitionPage() {
   return (
     <section>
       ExhibitionPage
-      <ChipMenu list={categoryList} />
-      <ChipMenu list={regionList} />
+      <ChipMenu list={categoryList} size={'medium'} />
+      <ChipMenu list={regionList} size="small" />
       {/* <ExhibitionList /> */}
     </section>
   );
