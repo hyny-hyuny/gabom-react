@@ -5,8 +5,9 @@ function PlacePage() {
     <section>
       <PlaceCard
         name="그라운드 시소 서촌"
-        type="shorcut"
+        type="full"
         address="서울시 종로구 어쩌구"
+        linkTo="/"
         img=""
         isBookmark={false}
       />

@@ -1,18 +1,34 @@
-import { ComponentProps } from "react"
+import { ChangeEvent, useId } from 'react';
 import Bookmark from '@/assets/bookmark.svg?react';
 
-type BookmarkBtnProps = ComponentProps<'button'> & {
-  isBookmark:boolean
+interface BookmarkBtnProps {
+  isBookmark: boolean;
+  onClickBookmark?: (value:boolean)=>void;
+};
+
+function BookmarkBtn({ isBookmark, onClickBookmark }: BookmarkBtnProps) {
+  const id = useId();
+
+  const handleChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
+    e.stopPropagation();
+    onClickBookmark?.(e.target.checked);
+  };
+
+  return (
+    <label
+      htmlFor={id}
+      className={`${isBookmark ? 'text-primary' : 'text-gray-100'}`}
+    >
+      <input
+        onChange={handleChangeValue}
+        id={id}
+        type="checkbox"
+        className="hidden"
+        checked={isBookmark}
+      />
+      <Bookmark width={24} height={24} />
+    </label>
+  );
 }
 
-function BookmarkBtn ({isBookmark, onClick}:BookmarkBtnProps){
-  return  <button
-  type="button"
-  onClick={onClick}
-  className={`cursor-pointer ${isBookmark ? 'text-primary' : 'text-gray-100'}`}
->
-  <Bookmark width={24} height={24} />
-</button>
-}
-
-export default BookmarkBtn
+export default BookmarkBtn;
