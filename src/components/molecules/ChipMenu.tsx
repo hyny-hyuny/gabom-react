@@ -1,5 +1,6 @@
 import { tm } from '@/utils/tw-merge';
 import ChipBtn from '../atoms/ChipBtn';
+import { useState } from 'react';
 
 export interface ChipMenuData {
   label: string;
@@ -7,23 +8,39 @@ export interface ChipMenuData {
 }
 
 interface ChipMenuProps {
-  list: ChipMenuData[];
+  list: string[];
   size: 'medium' | 'small';
 }
 
 function ChipMenu({ list, size }: ChipMenuProps) {
+  const [pressedIndex, setPressedIndex] = useState(0);
+
+  const handleToggle = (pressedIndex: number) => {
+    console.log(pressedIndex);
+    setPressedIndex(pressedIndex);
+  };
+
   return (
     <div className={tm('overflow-x-auto')}>
       <ul
         className={tm(
-          'w-max h-[50px] px-custom-6 flex items-center',
-          size === 'medium' ? 'gap-custom-1' : 'gap-custom-6'
+          'w-max px-custom-6 flex items-center',
+          size === 'medium' ? 'gap-custom-1 h-[50px]' : 'gap-custom-6 h-[38px]'
         )}
       >
         {list.map((item, index) => {
+          const ispress = index === pressedIndex;
+
           return (
             <li key={index} className="shrink-0">
-              <ChipBtn label={item.label} isPress={item.status} size={size} />
+              <ChipBtn
+                pressed={ispress}
+                size={size}
+                index={index}
+                onToggle={handleToggle}
+              >
+                {item}
+              </ChipBtn>
             </li>
           );
         })}

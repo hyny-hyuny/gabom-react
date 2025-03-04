@@ -1,33 +1,35 @@
 import { tm } from '@/utils/tw-merge';
 
 interface ChipTypes {
-  label: string;
-  isPress: boolean;
+  children: string;
+  pressed: boolean;
   size?: string;
+  index: number;
+  onToggle: (pressedIndex: number) => void;
 }
 
-function ChipBtn({ label = '이름', isPress, size }: ChipTypes) {
+function ChipBtn({ children, pressed, size, index, onToggle }: ChipTypes) {
   const chipMedium =
-    'block border-1 px-custom-6 py-custom-3 border-gray-100 rounded-[22px] bg-white';
+    'block border-2 px-custom-6 py-custom-3 border-gray-100 rounded-[22px] bg-white';
   const chipMediumSelected = 'border-tertiary text-tertiary';
-  const chipSmall = 'label-sm';
   const chipSmallSelected =
     'text-tertiary after:block after:content-[""] after:w-1 after:h-1 after:bg-primary after:rounded-3xs relative after:absolute after:top-0 after:-right-1';
-
-  const isSelected = !!isPress;
 
   return (
     <button
       type="button"
       className={tm(
-        'cursor-pointer',
-        size === 'medium' ? chipMedium : size === 'small' ? chipSmall : '',
-        isSelected && size === 'medium' && chipMediumSelected,
-        isSelected && size === 'small' && chipSmallSelected
+        'cursor-pointer label-sm',
+        size === 'medium' ? chipMedium : '',
+        pressed && size === 'medium' && chipMediumSelected,
+        pressed && size === 'small' && chipSmallSelected
       )}
-      aria-pressed={isPress}
+      aria-pressed={true}
+      onClick={() => {
+        onToggle(index);
+      }}
     >
-      {label}
+      {children}
     </button>
   );
 }
