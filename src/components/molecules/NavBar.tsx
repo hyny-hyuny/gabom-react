@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import NavItem from '../atoms/NavItem';
 
 import ExhibitionIcon from '../../assets/exhibition.svg?react';
@@ -21,31 +20,13 @@ const navItems: NavItemData[] = [
   { label: 'MY', Icon: MyIcon, path: '/my' },
 ];
 
-const getPath = (): NavItemPath => {
-  return location.pathname as NavItemPath;
-};
-
-
 function NavBar() {
-  const [currentPath, setCurrentPath] = useState<NavItemPath>(getPath);
-
-  const handleCurrentPage = (path: NavItemPath) => {
-    setCurrentPath(path);
-  };
-
   const navItemsMap = navItems.map((item) => {
-    return (
-      <NavItem
-        key={item.label}
-        {...item}
-        handleCurrentPage={handleCurrentPage}
-        currentPath={currentPath}
-      />
-    );
+    return <NavItem key={item.label} {...item} />;
   });
 
   return (
-    <nav className='px-4 pb-2 nav-inner-border-top'>
+    <nav className="px-4 pb-2 nav-inner-border-top">
       <ul className={'flex'}>{navItemsMap}</ul>
     </nav>
   );
