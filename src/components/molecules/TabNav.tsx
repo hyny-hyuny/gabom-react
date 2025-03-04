@@ -48,7 +48,7 @@ function TabNav() {
 
   return (
     <nav
-      className="top-inner-border-bottom px-6 border-gray-100"
+      className="top-inner-border-bottom px-4 border-gray-100"
       aria-label="내 정보 목록 내비게이션"
     >
       <ul className="flex h-11">{tabNavItemsMap}</ul>
