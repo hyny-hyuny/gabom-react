@@ -26,7 +26,7 @@ function ReviewCard({
   const countText = `${adults > 0 ? `성인 ${adults}명` : ''}${adults > 0 && kids > 0 ? ` • ` : ''}${kids ? `어린이 ${kids}명` : ''}`;
 
   return (
-    <article className="bg-white p-4 rounded-sm flex flex-col items-center">
+    <article className="bg-white p-3 rounded-sm flex flex-col items-center">
       <h2 className="text-label-md font-medium text-contents-content-primary w-48 ellipsis-2">
         {title}
       </h2>

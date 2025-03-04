@@ -41,10 +41,10 @@ function PlaceCard({
         src={img}
         alt={'장소 이미지'}
       />
-      <p className="flex flex-col ml-4 flex-1 gap-1 justify-center items-start text-contents-content-primary">
+      <p className="flex flex-col ml-4 flex-1 gap-1 justify-center items-start text-contents-content-primary line-clamp-3">
         <h2 className="font-medium ">{name}</h2>
         {isFullType ? (
-          <span className="text-xs mt-">{address}</span>
+          <span className="text-xs">{address}</span>
         ) : (
           <Tag emoji="📍" label={address} />
         )}
