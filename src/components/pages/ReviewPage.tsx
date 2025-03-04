@@ -11,6 +11,7 @@ function ReviewPage() {
         reviewImg=""
         writer="soohyn"
         date="2025. 4. 1"
+        linkTo="/"
         counts={[1, 0]}
       />
     </section>
