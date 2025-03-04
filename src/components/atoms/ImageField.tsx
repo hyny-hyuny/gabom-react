@@ -17,7 +17,7 @@ function ImageField({
 
     <div
       style={{width, height}}
-      className={`overflow-hidden bg-gray-500 rounded-xs shrink-0]`}
+      className={`overflow-hidden bg-gray-500 rounded-xs shrink-0`}
     >
       <img className="w-full h-full object-cover" alt={alt} {...imgProps} />
     </div>
