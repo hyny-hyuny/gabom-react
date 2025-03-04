@@ -27,7 +27,7 @@ function NavItem({
         onClick={handleNavLink}
       >
         <Icon width={24} height={24}/>
-        <span className='text-xs/relaxed font-medium'>{label}</span>
+        <span className='label-sm font-medium'>{label}</span>
       </NavLink>
     </li>
   );
