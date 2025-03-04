@@ -22,7 +22,7 @@ function NavItem({
   return (
     <li className='flex flex-1'>
       <NavLink
-        className={`w-full items-center flex flex-col justify-center px-4 pb-3 pt-1 border-t-4  ${isCurrent ? 'text-tertiary border-primary' : 'border-transparent'}`}
+        className={`w-full items-center flex flex-col justify-center px-3 pb-2 pt-1 border-t-4  ${isCurrent ? 'text-tertiary border-primary' : 'border-transparent'}`}
         to={path}
         onClick={handleNavLink}
       >

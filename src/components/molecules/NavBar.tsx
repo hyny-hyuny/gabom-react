@@ -45,7 +45,7 @@ function NavBar() {
   });
 
   return (
-    <nav className='px-6 pb-3 nav-inner-border-top'>
+    <nav className='px-4 pb-2 nav-inner-border-top'>
       <ul className={'flex'}>{navItemsMap}</ul>
     </nav>
   );
