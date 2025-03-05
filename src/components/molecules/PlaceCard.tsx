@@ -1,15 +1,17 @@
-import Bookmark from '@/assets/bookmark.svg?react';
+import BookmarkBtn from '../atoms/BookmarkBtn';
 import ImageField from '../atoms/ImageField';
 import Tag from '../atoms/Tag';
 import { useState } from 'react';
+import { Link } from 'react-router';
 
 type AddressType = 'full' | 'shorcut';
 
 interface PlaceCardProps {
   name: string;
   type: AddressType;
-  address: string;
   img: string;
+  linkTo: string;
+  address: string;
   isBookmark: boolean;
   handleAddBookmark?: (isBookmark: boolean) => void;
 }
@@ -17,8 +19,9 @@ interface PlaceCardProps {
 function PlaceCard({
   name,
   type,
-  address,
   img,
+  linkTo,
+  address,
   isBookmark,
   handleAddBookmark,
 }: PlaceCardProps) {
@@ -35,27 +38,27 @@ function PlaceCard({
     <article
       className={`flex items-center ${isFullType ? '' : 'p-3 rounded-sm bg-white'}`}
     >
-      <ImageField
-        width={isFullType ? '5.25rem' : '4rem'}
-        height={isFullType ? '5.25rem' : '4rem'}
-        src={img}
-        alt={'장소 이미지'}
+
+      <Link to={linkTo} className='flex flex-1'>
+        <ImageField
+          width={isFullType ? '5.25rem' : '4rem'}
+          height={isFullType ? '5.25rem' : '4rem'}
+          src={img}
+          alt={'장소 이미지'}
+        />
+        <div className="flex flex-col ml-4 flex-1 gap-1 justify-center items-start text-contents-content-primary line-clamp-3">
+          <strong className="font-medium ">{name}</strong>
+          {isFullType ? (
+            <span className="paragraph-xs">{address}</span>
+          ) : (
+            <Tag emoji="📍" label={address} />
+          )}
+        </div>
+      </Link>
+      <BookmarkBtn
+        onClickBookmark={handleClickBookmark}
+        isBookmark={isCurrentBookmark}
       />
-      <p className="flex flex-col ml-4 flex-1 gap-1 justify-center items-start text-contents-content-primary">
-        <h2 className="font-medium ">{name}</h2>
-        {isFullType ? (
-          <span className="text-xs mt-">{address}</span>
-        ) : (
-          <Tag emoji="📍" label={address} />
-        )}
-      </p>
-      <button
-        type="button"
-        onClick={handleClickBookmark}
-        className={`cursor-pointer ${isCurrentBookmark ? 'text-primary' : 'text-gray-100'}`}
-      >
-        <Bookmark width={24} height={24} />
-      </button>
     </article>
   );
 }
