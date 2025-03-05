@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import Logo from '/public/logo/horizontal-md.svg?react';
+import Logo from '@/assets/logo/horizontal-md.svg?react';
 import { tm } from '@/utils/tw-merge';
 import BackBtn from '../atoms/BackBtn';
 
