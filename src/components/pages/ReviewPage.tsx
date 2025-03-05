@@ -1,4 +1,4 @@
-import ReviewCard from '../organisms/ReviewCard';
+import ReviewCard from '../molecules/ReviewCard';
 
 function ReviewPage() {
   return (
