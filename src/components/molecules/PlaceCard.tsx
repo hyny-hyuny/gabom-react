@@ -47,7 +47,7 @@ function PlaceCard({
           alt={'장소 이미지'}
         />
         <div className="flex flex-col ml-4 flex-1 gap-1 justify-center items-start text-contents-content-primary line-clamp-3">
-          <h2 className="font-medium ">{name}</h2>
+          <strong className="font-medium ">{name}</strong>
           {isFullType ? (
             <span className="paragraph-xs">{address}</span>
           ) : (

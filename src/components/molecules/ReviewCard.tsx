@@ -37,9 +37,9 @@ function ReviewCard({
   return (
     <article className="relative bg-white p-3 rounded-sm flex flex-col items-center">
       <Link to={linkTo} className="flex flex-col items-center">
-        <h2 className="label-md text-contents-content-primary w-[16.25rem] mx-6 ellipsis-2">
+        <strong className="label-md text-contents-content-primary w-[16.25rem] mx-6 ellipsis-2">
           {title}
-        </h2>
+        </strong>
 
         <div className="flex items-center gap-2 mt-1">
           <ImageField
