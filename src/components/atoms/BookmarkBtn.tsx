@@ -1,33 +1,32 @@
-import { ChangeEvent, useId } from 'react';
+import { ComponentProps } from 'react';
 import Bookmark from '@/assets/bookmark.svg?react';
+import { tm } from '@/utils/tw-merge';
 
-interface BookmarkBtnProps {
+type BookmarkBtnProps = ComponentProps<'button'> & {
   isBookmark: boolean;
-  onClickBookmark?: (value:boolean)=>void;
+  onClickBookmark?: (value: boolean) => void;
+  width?: number;
+  height?: number;
 };
 
-function BookmarkBtn({ isBookmark, onClickBookmark }: BookmarkBtnProps) {
-  const id = useId();
-
-  const handleChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
-    e.stopPropagation();
-    onClickBookmark?.(e.target.checked);
+function BookmarkBtn({
+  isBookmark,
+  onClickBookmark,
+  width = 24,
+  height = 24,
+  className,
+}: BookmarkBtnProps) {
+  const handleChangeValue = () => {
+    onClickBookmark?.(!isBookmark);
   };
 
   return (
-    <label
-      htmlFor={id}
-      className={`${isBookmark ? 'text-primary' : 'text-gray-100'}`}
+    <button
+      onClick={handleChangeValue}
+      className={tm(`${isBookmark ? 'text-primary' : 'text-gray-100'}`,className)}
     >
-      <input
-        onChange={handleChangeValue}
-        id={id}
-        type="checkbox"
-        className="hidden"
-        checked={isBookmark}
-      />
-      <Bookmark width={24} height={24} />
-    </label>
+      <Bookmark width={width} height={height} />
+    </button>
   );
 }
 
