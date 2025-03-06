@@ -51,6 +51,14 @@ function ExhibitionList() {
 
   return (
     <section className="px-custom-6 flex flex-col gap-custom-8 my-custom-5">
+      <ExhibitionCard
+        key={ExhibitionData[0].id}
+        place={ExhibitionData[0].place}
+        isBookmark={ExhibitionData[0].isBookmark}
+        size="small"
+      >
+        {ExhibitionData[0].title}
+      </ExhibitionCard>
       {ExhibitionData.map((item) => {
         const formatDate = (date: Date) => {
           return date
