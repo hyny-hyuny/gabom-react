@@ -3,13 +3,13 @@ import ExhibitionCard from '../molecules/ExhibitionCard';
 export interface ExhibitionDataType {
   id: number;
   title: string;
-  startDate: Date;
-  endDate: Date;
+  start_date: Date;
+  end_date: Date;
   place: string;
   reviews: number;
-  ageRange: 'all' | 'kids' | '12' | '15' | '19';
+  age_range: 'all' | 'kids' | '12' | '15' | '19';
   status: string; // '전시중' | '전시 종료' | '전시 예정'
-  isBookmark: boolean;
+  is_bookmark: boolean;
 }
 
 function ExhibitionList() {
@@ -17,35 +17,35 @@ function ExhibitionList() {
     {
       id: 1,
       title: '소행성이 빛을 내는 방법',
-      startDate: new Date('2024-03-01'),
-      endDate: new Date('2024-12-30'),
+      start_date: new Date('2024-03-01'),
+      end_date: new Date('2024-12-30'),
       status: '전시 종료',
       reviews: 35,
       place: '갤러리 헬렌에이',
-      ageRange: 'all',
-      isBookmark: true,
+      age_range: 'all',
+      is_bookmark: true,
     },
     {
       id: 2,
       title: 'NOWHERE',
-      startDate: new Date('2025-03-02'),
-      endDate: new Date('2025-03-27'),
+      start_date: new Date('2025-03-02'),
+      end_date: new Date('2025-03-27'),
       status: '전시 예정',
       reviews: 23,
       place: '룩인사이드갤러리',
-      ageRange: '12',
-      isBookmark: false,
+      age_range: '12',
+      is_bookmark: false,
     },
     {
       id: 3,
       title: 'Unspoken Words:말하지 않은 단어',
-      startDate: new Date('2025-02-24'),
-      endDate: new Date('2025-03-30'),
+      start_date: new Date('2025-02-24'),
+      end_date: new Date('2025-03-30'),
       status: '전시중',
       reviews: 56,
       place: '스페이시움',
-      ageRange: '15',
-      isBookmark: true,
+      age_range: '15',
+      is_bookmark: true,
     },
   ];
 
@@ -54,7 +54,7 @@ function ExhibitionList() {
       <ExhibitionCard
         key={ExhibitionData[0].id}
         place={ExhibitionData[0].place}
-        isBookmark={ExhibitionData[0].isBookmark}
+        isBookmark={ExhibitionData[0].is_bookmark}
         size="small"
       >
         {ExhibitionData[0].title}
@@ -70,10 +70,10 @@ function ExhibitionList() {
             .replace(/\. /g, '.');
         };
 
-        const period = `${formatDate(item.startDate)} ~ ${formatDate(item.endDate)}`;
+        const period = `${formatDate(item.start_date)} ~ ${formatDate(item.end_date)}`;
 
         let ageMessage;
-        switch (item.ageRange) {
+        switch (item.age_range) {
           case 'all':
             ageMessage = '모든 연령 관람 가능';
             break;
@@ -99,7 +99,7 @@ function ExhibitionList() {
             place={item.place}
             ageRange={ageMessage}
             period={period}
-            isBookmark={item.isBookmark}
+            isBookmark={item.is_bookmark}
           >
             {item.title}
           </ExhibitionCard>
