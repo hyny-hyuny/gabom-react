@@ -2,16 +2,9 @@ import ExhibitionCard from '../molecules/ExhibitionCard';
 
 export interface ExhibitionDataType {
   id: number;
-  // created_at: Date;
   title: string;
-  // description: string;
   start_date: Date;
   end_date: Date;
-  // detail_img: string;
-  // price: number;
-  // category_id: string;
-  // thumbnail: stirng; // img
-  // place_id: number; // Place
   place: string;
   reviews: number;
   age_range: 'all' | 'kids' | '12' | '15' | '19';
