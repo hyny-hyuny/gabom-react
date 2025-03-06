@@ -11,7 +11,7 @@ interface ExhibitionCardProps {
   status?: string;
   reviews?: number;
   place: string;
-  age_range?: string;
+  ageRange?: string;
   period?: string;
   size?: string;
   isBookmark: boolean;
@@ -23,7 +23,7 @@ function ExhibitionCard({
   status = '',
   reviews,
   place,
-  age_range = '',
+  ageRange = '',
   period = '',
   size,
   isBookmark,
@@ -57,7 +57,6 @@ function ExhibitionCard({
           <BookmarkBtn
             isBookmark={isCurrentBookmark}
             onClickBookmark={handleClickBookmark}
-            className={tm()}
           />
         </article>
       ) : (
@@ -72,7 +71,7 @@ function ExhibitionCard({
               <Badge>{status}</Badge>
               <Tag emoji="🗓️" label={period} />
               <Tag emoji="📍" label={place} />
-              <Tag emoji="👥" label={age_range} />
+              <Tag emoji="👥" label={ageRange} />
               <p className="paragraph-xs text-gray-500">
                 방문자 리뷰 {reviews}
               </p>
