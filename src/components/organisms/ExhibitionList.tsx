@@ -16,6 +16,7 @@ export interface ExhibitionDataType {
   reviews: number;
   age_range: 'all' | 'kids' | '12' | '15' | '19';
   status: string; // '전시중' | '전시 종료' | '전시 예정'
+  isBookmark: boolean;
 }
 
 function ExhibitionList() {
@@ -29,6 +30,7 @@ function ExhibitionList() {
       reviews: 35,
       place: '갤러리 헬렌에이',
       age_range: 'all',
+      isBookmark: true,
     },
     {
       id: 2,
@@ -39,6 +41,7 @@ function ExhibitionList() {
       reviews: 23,
       place: '룩인사이드갤러리',
       age_range: '12',
+      isBookmark: false,
     },
     {
       id: 3,
@@ -49,6 +52,7 @@ function ExhibitionList() {
       reviews: 56,
       place: '스페이시움',
       age_range: '15',
+      isBookmark: true,
     },
   ];
 
@@ -94,6 +98,7 @@ function ExhibitionList() {
             place={item.place}
             age_range={age_message}
             period={period}
+            isBookmark={item.isBookmark}
           >
             {item.title}
           </ExhibitionCard>
