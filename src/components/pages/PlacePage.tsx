@@ -4,7 +4,7 @@ import PlaceCard from '../molecules/PlaceCard';
 
 function PlacePage() {
   return (
-    <section className="relative h-full ">
+    <section>
       <BottomSheet>
         <ul className="flex flex-col gap-4">
           <PlaceCard
