@@ -51,13 +51,11 @@ function ExhibitionCard({
         </div>
         <ImageField width={'6.25rem'} height={'8.625rem'} />
       </Link>
-      {/* 스타일 임시 div */}
-      <div className="absolute left-custom-2 bottom-custom-2">
-        <BookmarkBtn
-          isBookmark={isCurrentBookmark}
-          onClickBookmark={handleClickBookmark}
-        />
-      </div>
+      <BookmarkBtn
+        isBookmark={isCurrentBookmark}
+        onClickBookmark={handleClickBookmark}
+        className="absolute left-custom-2 bottom-custom-2"
+      />
     </article>
   );
 }
