@@ -11,7 +11,7 @@ function Header({ depth = false }: HeaderProps) {
   return (
     <header
       className={tm(
-        'w-full h-11 flex items-center justify-center px-custom-6 fixed top-0 min-w-[20rem] max-w-[31.25rem]'
+        'w-full h-11 flex items-center justify-center px-custom-6 fixed top-0 min-w-[20rem] max-w-[31.25rem] bg-white'
       )}
     >
       {depth ? (
