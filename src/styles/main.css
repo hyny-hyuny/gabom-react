@@ -17,5 +17,6 @@ body {
     margin: 0 auto;
     padding-top: 2.75rem; /* 44px */
     position: relative;
+    padding-bottom: 5rem; /* 80px */
   }
 }
