@@ -14,7 +14,7 @@ body {
     background-color: white;
     min-width: 20rem; /* 320px */
     max-width: 31.25rem; /* 500px */
-    height: 100vh;
+    min-height: 100vh;
     margin: 0 auto;
     padding-top: 2.75rem; /* 44px */
     position: relative;
