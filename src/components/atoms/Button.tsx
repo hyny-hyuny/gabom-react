@@ -1,5 +1,8 @@
 import { tm } from '@/utils/tw-merge';
 import IconPlus from '@/assets/plus.svg?react';
+import IconReview from '@/assets/review.svg?react';
+import IconTime from '@/assets/time.svg?react';
+import IconAddPhoto from '@/assets/addPhoto.svg?react';
 
 interface ButtonProps {
   children: string;
@@ -12,16 +15,13 @@ interface ButtonProps {
 
 function Button({
   children,
-  // icon = '',
+  icon = '',
   isMore = false,
   color = '',
   isFilled,
   isDisabled = false,
 }: ButtonProps) {
-  // 더보기, 리뷰쓰기, 예약하기, 로그인, 다음 등등
-
-  // 아이콘
-  // time, plus, review, add-photo
+  // 더보기, 리뷰쓰기, 예약하기, 로그인, 다음, 전시 더보기, 사진 추가하기
 
   const defaultClass =
     'w-full rounded-2xs flex gap-custom-1 justify-center items-center cursor-pointer';
@@ -29,7 +29,7 @@ function Button({
   return isMore ? (
     <button
       type="button"
-      // disabled
+      disabled={isDisabled}
       className={tm(
         defaultClass,
         `h-8 label-sm border-1 border-gray-200 text-tertiary label-sm disabled:text-gray-200 disabled:bg-gray-50`
@@ -54,6 +54,9 @@ function Button({
               : ' bg-white text-content-primary'
       )}
     >
+      {icon === 'review' && <IconReview width={24} height={24} />}
+      {icon === 'time' && <IconTime width={24} height={24} />}
+      {icon === 'photo' && <IconAddPhoto width={24} height={24} />}
       {children}
     </button>
   );
