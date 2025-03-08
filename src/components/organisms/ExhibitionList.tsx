@@ -52,6 +52,7 @@ function ExhibitionList() {
 
   return (
     <section className="px-custom-6 flex flex-col gap-custom-8 my-custom-5">
+      <Button>전시 더보기</Button>
       <Button icon="plus" isFilled={true} isMore={true}>
         전시 더보기
       </Button>
@@ -61,10 +62,15 @@ function ExhibitionList() {
       <Button isFilled={false} color="primary">
         로그인
       </Button>
-      <Button icon={'plus'} isFilled={true} color="tertiary">
-        전시 더보기
+      <Button icon="photo" isFilled={false} color="tertiary">
+        사진 추가하기
       </Button>
-      <Button>전시 더보기</Button>
+      <Button icon="review" isFilled={true} color="tertiary">
+        리뷰쓰기
+      </Button>
+      <Button isFilled={true} color="tertiary">
+        닫기
+      </Button>
       <ExhibitionCard
         key={ExhibitionData[0].id}
         place={ExhibitionData[0].place}
