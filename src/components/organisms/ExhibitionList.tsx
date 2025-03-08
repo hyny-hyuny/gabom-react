@@ -1,3 +1,4 @@
+import Button from '../atoms/Button';
 import ExhibitionCard from '../molecules/ExhibitionCard';
 
 export interface ExhibitionDataType {
@@ -51,6 +52,19 @@ function ExhibitionList() {
 
   return (
     <section className="px-custom-6 flex flex-col gap-custom-8 my-custom-5">
+      <Button icon="plus" isFilled={true} isMore={true}>
+        전시 더보기
+      </Button>
+      <Button icon="time" isFilled={false} color="tertiary">
+        예약하기
+      </Button>
+      <Button isFilled={false} color="primary">
+        로그인
+      </Button>
+      <Button icon={'plus'} isFilled={true} color="tertiary">
+        전시 더보기
+      </Button>
+      <Button>전시 더보기</Button>
       <ExhibitionCard
         key={ExhibitionData[0].id}
         place={ExhibitionData[0].place}
