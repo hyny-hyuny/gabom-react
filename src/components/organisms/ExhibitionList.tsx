@@ -56,7 +56,7 @@ function ExhibitionList() {
       <Button icon="plus" isFilled={true} isMore={true}>
         전시 더보기
       </Button>
-      <Button icon="time" isFilled={false} color="tertiary">
+      <Button icon="time" isLink={true} isFilled={false} color="tertiary">
         예약하기
       </Button>
       <Button isFilled={false} color="primary">
@@ -65,7 +65,13 @@ function ExhibitionList() {
       <Button icon="photo" isFilled={false} color="tertiary">
         사진 추가하기
       </Button>
-      <Button icon="review" isFilled={true} color="tertiary">
+      <Button
+        icon="review"
+        isLink={true}
+        isDisabled={true}
+        isFilled={true}
+        color="tertiary"
+      >
         리뷰쓰기
       </Button>
       <Button isFilled={true} color="tertiary">
