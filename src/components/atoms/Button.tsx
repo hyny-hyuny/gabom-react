@@ -21,7 +21,7 @@ function Button({
   isFilled,
   isDisabled = false,
 }: ButtonProps) {
-  // 더보기, 리뷰쓰기, 예약하기, 로그인, 다음, 전시 더보기, 사진 추가하기
+  // 더보기, 리뷰쓰기, 예약하기, 로그인, 다음, 전시 더보기, 사진 추가하기 등
 
   const defaultClass =
     'w-full rounded-2xs flex gap-custom-1 justify-center items-center cursor-pointer disabled:bg-gray-50 disabled:text-gray-300';
@@ -36,7 +36,12 @@ function Button({
       )}
     >
       {children}
-      <IconPlus width={24} height={24} className="fill-gray-200" />
+      <IconPlus
+        width={24}
+        height={24}
+        className="fill-gray-200"
+        aria-hidden="true"
+      />
     </button>
   ) : (
     <button
@@ -54,9 +59,15 @@ function Button({
               : ' bg-white text-content-primary'
       )}
     >
-      {icon === 'review' && <IconReview width={24} height={24} />}
-      {icon === 'time' && <IconTime width={24} height={24} />}
-      {icon === 'photo' && <IconAddPhoto width={24} height={24} />}
+      {icon === 'review' && (
+        <IconReview width={24} height={24} aria-hidden="true" />
+      )}
+      {icon === 'time' && (
+        <IconTime width={24} height={24} aria-hidden="true" />
+      )}
+      {icon === 'photo' && (
+        <IconAddPhoto width={24} height={24} aria-hidden="true" />
+      )}
       {children}
     </button>
   );
