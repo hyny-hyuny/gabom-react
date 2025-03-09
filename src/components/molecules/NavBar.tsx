@@ -26,7 +26,7 @@ function NavBar() {
   });
 
   return (
-    <nav className="px-4 pb-2 nav-inner-border-top">
+    <nav className="w-full px-4 pb-2 nav-inner-border-top fixed max-w-[31.25rem] bottom-0 bg-white">
       <ul className={'flex'}>{navItemsMap}</ul>
     </nav>
   );
