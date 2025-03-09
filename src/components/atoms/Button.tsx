@@ -24,7 +24,7 @@ function Button({
   // 더보기, 리뷰쓰기, 예약하기, 로그인, 다음, 전시 더보기, 사진 추가하기
 
   const defaultClass =
-    'w-full rounded-2xs flex gap-custom-1 justify-center items-center cursor-pointer';
+    'w-full rounded-2xs flex gap-custom-1 justify-center items-center cursor-pointer disabled:bg-gray-50 disabled:text-gray-300';
 
   return isMore ? (
     <button
