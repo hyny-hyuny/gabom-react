@@ -2,13 +2,13 @@ import { tm } from '@/utils/tw-merge';
 
 interface ChipTypes {
   children: string;
-  pressed: boolean;
+  isPressed: boolean;
   size?: string;
   index: number;
   onToggle: (pressedIndex: number) => void;
 }
 
-function ChipBtn({ children, pressed, size, index, onToggle }: ChipTypes) {
+function ChipBtn({ children, isPressed, size, index, onToggle }: ChipTypes) {
   const chipMedium =
     'block border-2 px-custom-6 py-custom-3 border-gray-100 rounded-[22px] bg-white';
   const chipMediumSelected = 'border-tertiary text-tertiary';
@@ -21,8 +21,8 @@ function ChipBtn({ children, pressed, size, index, onToggle }: ChipTypes) {
       className={tm(
         'cursor-pointer label-sm',
         size === 'medium' ? chipMedium : '',
-        pressed && size === 'medium' && chipMediumSelected,
-        pressed && size === 'small' && chipSmallSelected
+        isPressed && size === 'medium' && chipMediumSelected,
+        isPressed && size === 'small' && chipSmallSelected
       )}
       aria-pressed={true}
       onClick={() => {
