@@ -18,10 +18,10 @@ interface ButtonProps {
 function Button({
   children,
   icon = '',
-  isMore = false,
+  isMore,
   color = '',
   isFilled,
-  isDisabled = false,
+  isDisabled,
   isLink,
 }: ButtonProps) {
   // 더보기, 리뷰쓰기, 예약하기, 로그인, 다음, 전시 더보기, 사진 추가하기 등
