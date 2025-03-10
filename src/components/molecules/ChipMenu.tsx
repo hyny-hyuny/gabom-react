@@ -16,7 +16,6 @@ function ChipMenu({ list, size }: ChipMenuProps) {
   const [pressedIndex, setPressedIndex] = useState(0);
 
   const handleToggle = (pressedIndex: number) => {
-    console.log(pressedIndex);
     setPressedIndex(pressedIndex);
   };
 
@@ -29,12 +28,12 @@ function ChipMenu({ list, size }: ChipMenuProps) {
         )}
       >
         {list.map((item, index) => {
-          const ispress = index === pressedIndex;
+          const isPressed = index === pressedIndex;
 
           return (
             <li key={index} className="shrink-0">
               <ChipBtn
-                pressed={ispress}
+                isPressed={isPressed}
                 size={size}
                 index={index}
                 onToggle={handleToggle}
