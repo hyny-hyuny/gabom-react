@@ -17,6 +17,7 @@ const summaryList: SummaryList = [
 ];
 
 function ProfileCard({ img, userName }: ProfileCard) {
+
   return (
     <article className="flex flex-col py-4 px-3 bg-secondary rounded-md gap-6 mx-4 my-6">
       <div role="group" className="flex flex-row gap-3">
@@ -27,15 +28,22 @@ function ProfileCard({ img, userName }: ProfileCard) {
             alt="프로필 사진"
           />
         </div>
+
         <p className="w-full">
           <MemberLevelTag level={3} />
-          <h3 className="mt-1 heading-md">{userName}</h3>
+          <strong className="block mt-1 heading-md">{userName}</strong>
         </p>
-        <IconBtn className="self-baseline bg-white text-tertiary p-1 min-w-8 min-h-8">
-          <IconPencil className='min-w-5 min-h-5' width={20} height={20} />
+
+        <IconBtn
+          className="self-baseline bg-white text-tertiary p-1 min-w-8 min-h-8"
+        >
+          <IconPencil className="min-w-5 min-h-5" width={20} height={20} />
         </IconBtn>
       </div>
+
       <MySummary summaryList={summaryList} />
+
+      {/* 버튼 컴포넌트 수정되면 링크 이동 추가 예정 */}
       <Button icon="review" isLink={true} isFilled={true}>
         리뷰쓰기
       </Button>
