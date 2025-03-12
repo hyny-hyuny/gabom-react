@@ -2,8 +2,9 @@ import { SummaryList } from '@/types/mySummary';
 import Button from '../atoms/Button';
 import MySummary from '../molecules/MySummary';
 import MemberLevelTag from '../atoms/MemberLevelTag';
-import IconBtn from '../atoms/IconBtn';
 import IconPencil from '../../assets/pencil.svg?react';
+import { useNavigate } from 'react-router';
+import IconReview from '../../assets/review.svg?react';
 
 interface ProfileCard {
   img: string;
@@ -17,6 +18,15 @@ const summaryList: SummaryList = [
 ];
 
 function ProfileCard({ img, userName }: ProfileCard) {
+  const navigate = useNavigate();
+
+  const handleGoToEditProfilePage = () => {
+     void navigate('edit');
+  };
+
+  const handleGoToWriteReview =() =>{
+    void navigate('/review/write');
+  }
 
   return (
     <article className="flex flex-col py-4 px-3 bg-secondary rounded-md gap-6 mx-4 my-6">
@@ -34,18 +44,18 @@ function ProfileCard({ img, userName }: ProfileCard) {
           <strong className="block mt-1 heading-md">{userName}</strong>
         </p>
 
-        <IconBtn
-          className="self-baseline bg-white text-tertiary p-1 min-w-8 min-h-8"
+        <Button
+          onClick={handleGoToEditProfilePage}
+          customClass="flex self-baseline bg-white text-tertiary p-1 min-w-8 min-h-8"
         >
           <IconPencil className="min-w-5 min-h-5" width={20} height={20} />
-        </IconBtn>
+        </Button>
       </div>
 
       <MySummary summaryList={summaryList} />
 
-      {/* 버튼 컴포넌트 수정되면 링크 이동 추가 예정 */}
-      <Button icon="review" isLink={true} isFilled={true}>
-        리뷰쓰기
+      <Button customClass='flex-row-reverse w-full p-5' label='리뷰 쓰기' onClick={handleGoToWriteReview} isFilled={true}>
+        <IconReview />
       </Button>
     </article>
   );
