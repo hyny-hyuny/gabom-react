@@ -13,7 +13,7 @@ function IconBtn({
     <button
       type={type}
       className={tm(
-        'p-1 rounded-2xs bg-primary disabled:bg-gray-100  text-contents-content-primary disabled:text-gray-400',
+        'flex items-center justify-center cursor-pointer p-1 rounded-2xs bg-primary disabled:bg-gray-100  text-contents-content-primary disabled:text-gray-400',
         className
       )}
       {...buttonProps}
