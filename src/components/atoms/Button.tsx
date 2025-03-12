@@ -9,7 +9,6 @@ type ButtonProps = ComponentProps<'button'> & {
   isFilled?: boolean;
   isDisabled?: boolean;
   customClass?: string;
-  onClick?: () => void;
 };
 
 function Button({
