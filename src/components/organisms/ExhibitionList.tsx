@@ -1,5 +1,7 @@
 import Button from '../atoms/Button';
 import ExhibitionCard from '../molecules/ExhibitionCard';
+import IconPlus from '@/assets/plus.svg?react';
+import IconAddPhoto from '@/assets/addPhoto.svg?react';
 
 export interface ExhibitionDataType {
   id: number;
@@ -50,33 +52,44 @@ function ExhibitionList() {
     },
   ];
 
+  const handleClick = () => {
+    console.log('버튼 클릭 ');
+  };
+
   return (
-    <section className="px-custom-6 flex flex-col gap-custom-8 my-custom-5">
-      <Button>전시 더보기</Button>
-      <Button icon="plus" isFilled={true} isMore={true}>
-        전시 더보기
-      </Button>
-      <Button icon="time" isLink={true} isFilled={false} color="tertiary">
-        예약하기
-      </Button>
-      <Button isFilled={false} color="primary">
-        로그인
-      </Button>
-      <Button icon="photo" isFilled={false} color="tertiary">
-        사진 추가하기
-      </Button>
+    <section className="px-custom-6 flex flex-col gap-custom-8 my-custom-5 bg-gray-100">
       <Button
-        icon="review"
-        isLink={true}
-        isDisabled={true}
-        isFilled={true}
+        label="커스텀 일반 버튼"
+        customClass="px-2 py-1"
+        onClick={handleClick}
+      ></Button>
+      <Button>
+        <IconPlus
+          width={24}
+          height={24}
+          aria-label="전시 더보기"
+          className="fill-gray-200"
+        />
+      </Button>
+      <Button label="전시 더보기" customClass="text-red-400 label-sm"></Button>
+      <Button isFilled={true} isMore={true} label="전시 더 보기">
+        <IconPlus
+          width={24}
+          height={24}
+          aria-hidden="true"
+          className="fill-gray-200"
+        />
+      </Button>
+      <Button isFilled={false} color="primary" label="로그인"></Button>
+      <Button
+        isFilled={false}
         color="tertiary"
+        label="사진 추가하기"
+        customClass="flex-row-reverse"
       >
-        리뷰쓰기
+        <IconAddPhoto width={24} height={24} aria-hidden="true" />
       </Button>
-      <Button isFilled={true} color="tertiary">
-        닫기
-      </Button>
+      <Button isFilled={true} color="tertiary" label="닫기"></Button>
       <ExhibitionCard
         key={ExhibitionData[0].id}
         place={ExhibitionData[0].place}
