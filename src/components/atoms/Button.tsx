@@ -1,102 +1,63 @@
 import { tm } from '@/utils/tw-merge';
-import IconPlus from '@/assets/plus.svg?react';
-import IconReview from '@/assets/review.svg?react';
-import IconTime from '@/assets/time.svg?react';
-import IconAddPhoto from '@/assets/addPhoto.svg?react';
-import { Link } from 'react-router';
+import { ComponentProps } from 'react';
 
-interface ButtonProps {
-  children: string;
-  icon?: string;
+type ButtonProps = ComponentProps<'button'> & {
+  children?: React.ReactElement<React.SVGProps<SVGSVGElement>>;
+  label?: string;
   color?: string;
   isMore?: boolean;
   isFilled?: boolean;
   isDisabled?: boolean;
-  isLink?: boolean;
-}
+  customClass?: string;
+  onClick?: () => void;
+};
 
 function Button({
   children,
-  icon = '',
-  isMore,
+  label = '',
   color = '',
-  isFilled,
-  isDisabled,
-  isLink,
+  isMore = false,
+  isFilled = false,
+  isDisabled = false,
+  customClass = '',
+  onClick,
 }: ButtonProps) {
   // 더보기, 리뷰쓰기, 예약하기, 로그인, 다음, 전시 더보기, 사진 추가하기 등
 
-  const defaultClass =
-    'w-full rounded-2xs flex gap-custom-1 justify-center items-center cursor-pointer disabled:bg-gray-50 disabled:text-gray-300';
+  const defaultClass = `rounded-2xs flex gap-custom-1 justify-center items-center cursor-pointer disabled:bg-gray-50 disabled:text-gray-300 ${customClass}`;
 
-  if (isMore) {
-    return (
-      <button
-        type="button"
-        disabled={isDisabled}
-        className={tm(
-          defaultClass,
-          `h-8 label-sm border-1 border-gray-200 text-tertiary label-sm disabled:text-gray-200 disabled:bg-gray-50`
-        )}
-      >
-        {children}
-        <IconPlus
-          width={24}
-          height={24}
-          className="fill-gray-200"
-          aria-hidden="true"
-        />
-      </button>
+  const getButtonClass = () =>
+    tm(
+      defaultClass,
+      // 노란색 fill 버튼
+      color === 'primary'
+        ? `w-full h-11 bg-primary text-content-primary disabled:bg-gray-100 disabled:text-gray-400 label-md`
+        : // 보라색 fill 버튼
+          isFilled === true && color === 'tertiary'
+          ? `w-full h-11  bg-tertiary text-white disabled:bg-gray-200 label-md`
+          : // 보라색 line 버튼
+            isFilled === false && color === 'tertiary'
+            ? `w-full h-11 bg-white text-tertiary border-1 border-tertiary disabled:text-gray-200 disabled:bg-gray-50 disabled:border-gray-200 label-md`
+            : // default 버튼
+              `w-fit bg-white text-content-primary`,
+      // 더보기 버튼
+      isMore
+        ? 'w-full h-8 border-1 border-gray-200 text-tertiary label-sm disabled:text-gray-200 disabled:bg-gray-50'
+        : '',
+      customClass
     );
-  } else if (isLink) {
-    return (
-      <Link
-        // 임시 경로
-        to={isDisabled ? '#' : '/pagename'}
-        aria-disabled={isDisabled}
-        className={tm(
-          defaultClass,
-          'label-md h-11',
-          isFilled && color === 'tertiary'
-            ? `bg-tertiary text-white ${isDisabled ? 'bg-gray-200' : ''}`
-            : !isFilled && color === 'tertiary'
-              ? `bg-white text-tertiary border-1 border-tertiary ${isDisabled ? 'text-gray-200 bg-gray-50 border-gray-200' : ''}`
-              : `bg-white text-content-primary ${isDisabled ? 'text-gray-200 bg-gray-50' : ''}`
-        )}
-      >
-        {icon === 'review' && (
-          <IconReview width={24} height={24} aria-hidden="true" />
-        )}
-        {icon === 'time' && (
-          <IconTime width={24} height={24} aria-hidden="true" />
-        )}
-        {children}
-      </Link>
-    );
-  } else {
-    return (
-      <button
-        type="button"
-        disabled={isDisabled}
-        className={tm(
-          defaultClass,
-          'label-md h-11',
-          color === 'primary'
-            ? 'bg-primary text-content-primary disabled:bg-gray-100 disabled:text-gray-400'
-            : isFilled && color === 'tertiary'
-              ? 'bg-tertiary text-white  disabled:bg-gray-200'
-              : !isFilled && color === 'tertiary'
-                ? 'bg-white text-tertiary border-1 border-tertiary disabled:text-gray-200 disabled:bg-gray-50 disabled:border-gray-200'
-                : ' bg-white text-content-primary'
-        )}
-      >
-        {icon === 'photo' && (
-          <IconAddPhoto width={24} height={24} aria-hidden="true" />
-        )}
-        {children}
-      </button>
-    );
-  }
+
+  return (
+    <button
+      type="button"
+      disabled={isDisabled}
+      className={tm(getButtonClass())}
+      onClick={onClick}
+    >
+      {label}
+      {children}
+    </button>
+  );
 }
 
 export default Button;
