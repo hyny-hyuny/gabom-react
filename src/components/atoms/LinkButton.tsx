@@ -4,7 +4,7 @@ import { tm } from '@/utils/tw-merge';
 interface LinkButtonProps extends React.ComponentProps<'a'> {
   children?: React.ReactElement<React.SVGProps<SVGSVGElement>>;
   label?: string;
-  color?: string;
+  color?: 'primary' | 'tertiary';
   isFilled?: boolean;
   isDisabled?: boolean;
   customClass?: string;
@@ -13,7 +13,7 @@ interface LinkButtonProps extends React.ComponentProps<'a'> {
 function LinkButton({
   children,
   label = '',
-  color = '', // 'primary' | 'tertiary'
+  color,
   isFilled = false,
   isDisabled = false,
   customClass = '',
