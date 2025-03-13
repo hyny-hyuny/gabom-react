@@ -52,7 +52,7 @@ function ExhibitionCard({
               <strong className="label-md">{children}</strong>
               <Tag emoji="📍" label={place} />
             </div>
-            <ImageField width={tm('2.5rem')} height={tm('3.375rem')} />
+            <ImageField width={tm('2.5rem')} height={tm('3.375rem')} src="" alt="" />
           </Link>
           <BookmarkBtn
             isBookmark={isCurrentBookmark}
@@ -76,7 +76,7 @@ function ExhibitionCard({
                 방문자 리뷰 {reviews}
               </p>
             </div>
-            <ImageField width={tm('6.25rem')} height={tm('8.625rem')} />
+            <ImageField width={tm('6.25rem')} height={tm('8.625rem')} src="" alt="" />
           </Link>
           <BookmarkBtn
             isBookmark={isCurrentBookmark}
