@@ -8,6 +8,7 @@ interface LinkButtonProps extends React.ComponentProps<'a'> {
   isFilled?: boolean;
   isDisabled?: boolean;
   customClass?: string;
+  pathName: string;
 }
 
 function LinkButton({
@@ -17,13 +18,14 @@ function LinkButton({
   isFilled = false,
   isDisabled = false,
   customClass = '',
+  pathName = '',
 }: LinkButtonProps) {
   const defaultClass = `rounded-2xs flex gap-custom-1 justify-center items-center cursor-pointer ${isDisabled ? 'bg-gray-50 text-gray-300' : ''} ${customClass}`;
 
   return (
     <Link
       // 임시 경로
-      to={isDisabled ? '/' : '/pagename'}
+      to={isDisabled ? '/' : `/${pathName}`}
       aria-disabled={isDisabled}
       className={tm(
         defaultClass,
