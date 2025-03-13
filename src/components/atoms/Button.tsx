@@ -14,7 +14,7 @@ type ButtonProps = ComponentProps<'button'> & {
 function Button({
   children,
   label = '',
-  color = '',
+  color = '', // 'primary' | 'tertiary'
   isMore = false,
   isFilled = false,
   isDisabled = false,
