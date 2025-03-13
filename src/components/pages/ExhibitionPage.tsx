@@ -1,12 +1,13 @@
 import Button from '../atoms/Button';
-import LinkButton from '../atoms/LinkButton';
+// import LinkButton from '../atoms/LinkButton';
 import ChipMenu from '../molecules/ChipMenu';
 import ExhibitionList from '../organisms/ExhibitionList';
 import IconAddPhoto from '@/assets/addPhoto.svg?react';
-import IconTime from '@/assets/time.svg?react';
-import IconReview from '@/assets/review.svg?react';
-import IconEdit from '@/assets/edit.svg?react';
+// import IconTime from '@/assets/time.svg?react';
+// import IconReview from '@/assets/review.svg?react';
+// import IconEdit from '@/assets/edit.svg?react';
 import IconPlus from '@/assets/plus.svg?react';
+import PopoverMenu from '../molecules/PopoverMenu';
 
 const categoryList = ['전체', '지역별', '무료전시', '연령대별', '마감임박'];
 const regionList = ['전체', '서울', '강원도', '부산', '타지역'];
@@ -19,6 +20,7 @@ function ExhibitionPage() {
   return (
     <section>
       ExhibitionPage
+      <PopoverMenu />
       <Button
         label="커스텀 일반 버튼"
         customClass="px-2 py-1"
@@ -71,7 +73,7 @@ function ExhibitionPage() {
         label="닫기"
         onClick={handleClick}
       ></Button>
-      <LinkButton isFilled={false} label="에약하기" color="tertiary">
+      {/* <LinkButton isFilled={false} label="에약하기" color="tertiary">
         <IconTime width={24} height={24} aria-hidden="true" />
       </LinkButton>
       <LinkButton
@@ -83,7 +85,7 @@ function ExhibitionPage() {
       </LinkButton>
       <LinkButton customClass="p-1 bg-white">
         <IconEdit aria-label="작성하기" />
-      </LinkButton>
+      </LinkButton> */}
       <ChipMenu list={categoryList} size={'medium'} />
       <ChipMenu list={regionList} size={'small'} />
       <ExhibitionList />
