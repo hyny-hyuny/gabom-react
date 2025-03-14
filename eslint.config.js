@@ -48,6 +48,11 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
       '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-unsafe-call': 'off',
+      "@typescript-eslint/no-misused-promises": [2, {
+        "checksVoidReturn": {
+          "attributes": false
+        }
+      }],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
@@ -55,3 +60,4 @@ export default tseslint.config(
     },
   }
 );
+

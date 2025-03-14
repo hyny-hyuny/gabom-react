@@ -5,6 +5,7 @@ import MemberLevelTag from '../atoms/MemberLevelTag';
 import IconPencil from '../../assets/pencil.svg?react';
 import { useNavigate } from 'react-router';
 import IconReview from '../../assets/review.svg?react';
+import ImageField from '../atoms/ImageField';
 
 interface ProfileCard {
   img: string;
@@ -31,13 +32,7 @@ function ProfileCard({ img, userName }: ProfileCard) {
   return (
     <article className="flex flex-col py-4 px-3 bg-secondary rounded-md gap-6 mx-4 my-6">
       <div role="group" className="flex flex-row gap-3">
-        <div className="min-w-16 max-w-16 max-h-16 min-h-16 rounded-sm bg-gray-100 border-2 border-white overflow-hidden">
-          <img
-            className="w-full h-full object-cover"
-            src={img}
-            alt="프로필 사진"
-          />
-        </div>
+      <ImageField width={'4rem'} height={'4rem'} alt={'프로필 사진'} src={img} className="border-2 border-white" />
 
         <p className="w-full">
           <MemberLevelTag level={3} />
