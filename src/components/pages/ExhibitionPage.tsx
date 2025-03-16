@@ -7,7 +7,7 @@ import IconAddPhoto from '@/assets/addPhoto.svg?react';
 // import IconReview from '@/assets/review.svg?react';
 // import IconEdit from '@/assets/edit.svg?react';
 import IconPlus from '@/assets/plus.svg?react';
-import PopoverMenu from '../molecules/PopoverMenu';
+import MoreMenu from '../molecules/MoreMenu';
 
 const categoryList = ['전체', '지역별', '무료전시', '연령대별', '마감임박'];
 const regionList = ['전체', '서울', '강원도', '부산', '타지역'];
@@ -20,7 +20,7 @@ function ExhibitionPage() {
   return (
     <section>
       ExhibitionPage
-      <PopoverMenu />
+      <MoreMenu />
       <Button
         label="커스텀 일반 버튼"
         customClass="px-2 py-1"
