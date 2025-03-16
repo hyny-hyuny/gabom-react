@@ -2,16 +2,23 @@ import { tm } from '@/utils/tw-merge';
 import Button from '../atoms/Button';
 import LinkButton from '../atoms/LinkButton';
 
-function PopoverMenu() {
-  const popoverList: string[] = ['수정하기', '삭제하기'];
+interface PopoverMenuProps {
+  isOpened: boolean;
+}
+
+function PopoverMenu({ isOpened = false }: PopoverMenuProps) {
+  const popoverList: string[] = ['수정하기', '또 다른 메뉴 리스트', '삭제하기'];
 
   return (
-    <div className={tm('w-25 bg-green-400')}>
-      <ul className={tm('flex flex-col gap-[1px] bg-primary rounded-2xs')}>
+    <div
+      role="menu"
+      className={tm(
+        'min-w-25 max-w-[200px] absolute top-[110%] right-0 overflow-hidden rounded-2xs shadow-low',
+        isOpened ? 'block' : 'hidden'
+      )}
+    >
+      <ul className={tm('flex flex-col gap-[1px] bg-primary text-center')}>
         {popoverList.map((item, index) => {
-          console.log(item);
-          console.log(item === '삭제하기');
-
           let list;
           if (item === '삭제하기') {
             list = (
@@ -25,7 +32,7 @@ function PopoverMenu() {
               <LinkButton
                 customClass={tm(`bg-transparent py-custom-3 no-underline`)}
                 label={item}
-                pathName=""
+                pathName="#"
               ></LinkButton>
             );
           }
@@ -33,7 +40,7 @@ function PopoverMenu() {
           return (
             <li
               key={index}
-              className="flex justify-center items-center bg-white"
+              className="flex justify-center items-center bg-white px-custom-4 whitespace-nowrap"
             >
               {list}
             </li>
