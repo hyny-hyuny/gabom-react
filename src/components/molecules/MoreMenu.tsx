@@ -28,7 +28,7 @@ function MoreMenu({ review, onDelete, customClass }: MoreMenuProps) {
   }, []);
 
   return (
-    <div className={tm('w-fit h-fit', customClass)} ref={menuRef}>
+    <div className={tm('relative w-fit h-fit', customClass)} ref={menuRef}>
       <button className="cursor-pointer block" onClick={handleMoreBtn}>
         <MoreIcon width={24} height={24} />
       </button>
