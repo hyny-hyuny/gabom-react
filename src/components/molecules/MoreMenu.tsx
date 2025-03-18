@@ -1,15 +1,20 @@
 import MoreIcon from '@/assets/more.svg?react';
 import PopoverMenu, { PopoverMenuProps } from './PopoverMenu';
 import { useEffect, useRef, useState } from 'react';
+import { tm } from '@/utils/tw-merge';
 
-function MoreMenu({ review, onDelete }: PopoverMenuProps) {
+type MoreMenuProps = PopoverMenuProps & {
+  customClass?: string;
+};
+
+function MoreMenu({ review, onDelete, customClass }: MoreMenuProps) {
   const [isOpened, setIsOpened] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const handleMoreBtn = () => {
-    console.log('더 보기 버튼 버튼');
     setIsOpened((isOpened) => !isOpened);
   };
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -23,7 +28,7 @@ function MoreMenu({ review, onDelete }: PopoverMenuProps) {
   }, []);
 
   return (
-    <div className="absolute right-5 bg-green-400 w-fit h-fit" ref={menuRef}>
+    <div className={tm('w-fit h-fit', customClass)} ref={menuRef}>
       <button className="cursor-pointer block" onClick={handleMoreBtn}>
         <MoreIcon width={24} height={24} />
       </button>
