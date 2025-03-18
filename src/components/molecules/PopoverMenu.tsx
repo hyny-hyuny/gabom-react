@@ -2,8 +2,12 @@ import { tm } from '@/utils/tw-merge';
 import Button from '../atoms/Button';
 import LinkButton from '../atoms/LinkButton';
 
-function PopoverMenu() {
-  const popoverList: string[] = ['수정하기', '또 다른 메뉴 리스트', '삭제하기'];
+export interface PopoverMenuProps {
+  review?: { id: string };
+}
+
+function PopoverMenu({ review }: PopoverMenuProps) {
+  const popoverList: string[] = ['수정하기', '삭제하기'];
 
   return (
     <div
@@ -32,7 +36,7 @@ function PopoverMenu() {
                   `w-full bg-transparent py-custom-3 no-underline px-custom-4`
                 )}
                 label={item}
-                pathName="#"
+                pathName={review?.id ? `/review/edit/${review.id}` : '#'}
               ></LinkButton>
             );
           }
