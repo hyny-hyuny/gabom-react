@@ -3,6 +3,7 @@ import Button from '../atoms/Button';
 import LinkButton from '../atoms/LinkButton';
 
 export interface PopoverMenuProps {
+  // 임시 옵셔널
   review?: { id: string };
   onDelete?: () => void;
 }
