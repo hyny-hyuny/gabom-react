@@ -4,9 +4,10 @@ import LinkButton from '../atoms/LinkButton';
 
 export interface PopoverMenuProps {
   review?: { id: string };
+  onDelete?: () => void;
 }
 
-function PopoverMenu({ review }: PopoverMenuProps) {
+function PopoverMenu({ review, onDelete }: PopoverMenuProps) {
   const popoverList: string[] = ['수정하기', '삭제하기'];
 
   return (
@@ -27,6 +28,7 @@ function PopoverMenu({ review }: PopoverMenuProps) {
                   'text-red-500'
                 )}
                 label={item}
+                onClick={onDelete}
               ></Button>
             );
           } else {

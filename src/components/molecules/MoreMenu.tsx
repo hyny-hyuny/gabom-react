@@ -2,7 +2,7 @@ import MoreIcon from '@/assets/more.svg?react';
 import PopoverMenu, { PopoverMenuProps } from './PopoverMenu';
 import { useEffect, useRef, useState } from 'react';
 
-function MoreMenu({ review }: PopoverMenuProps) {
+function MoreMenu({ review, onDelete }: PopoverMenuProps) {
   const [isOpened, setIsOpened] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -27,7 +27,7 @@ function MoreMenu({ review }: PopoverMenuProps) {
       <button className="cursor-pointer block" onClick={handleMoreBtn}>
         <MoreIcon width={24} height={24} />
       </button>
-      {isOpened && <PopoverMenu review={review} />}
+      {isOpened && <PopoverMenu review={review} onDelete={onDelete} />}
     </div>
   );
 }
