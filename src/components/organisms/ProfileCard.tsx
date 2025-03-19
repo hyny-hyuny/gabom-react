@@ -1,4 +1,4 @@
-import { SummaryList } from '@/types/mySummary';
+import { SummaryList } from '@/types/myPage';
 import Button from '../atoms/Button';
 import MySummary from '../molecules/MySummary';
 import MemberLevelTag from '../atoms/MemberLevelTag';

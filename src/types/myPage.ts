@@ -4,3 +4,9 @@ export interface Summary {
 }
 
 export type SummaryList = Summary[];
+
+export type MyPageTabSearchParam =
+  | 'review'
+  | 'place'
+  | 'bookmark'
+  | 'reservation';

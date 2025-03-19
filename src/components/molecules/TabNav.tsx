@@ -4,17 +4,12 @@ import PlaceIcon from '../../assets/place.svg?react';
 import ReviewIcon from '../../assets/review.svg?react';
 import TabNavItem from '../atoms/TabNavItem';
 import { useSearchParams } from 'react-router';
-
-export type TabNavItemSearchParam =
-  | 'review'
-  | 'place'
-  | 'bookmark'
-  | 'reservation';
+import { MyPageTabSearchParam } from '@/types/myPage';
 
 export type IconType = React.FC<React.SVGProps<SVGSVGElement>> | string;
 
 export interface TabNavItemData {
-  searchParam: TabNavItemSearchParam;
+  searchParam: MyPageTabSearchParam;
   label: string;
   Icon: IconType;
 }
@@ -27,10 +22,11 @@ const tabNavItems: TabNavItemData[] = [
 ];
 
 function TabNav() {
+  
   const [searchParams, setSearchParams] = useSearchParams();
-  const currentSearchParam = searchParams.get('tab') as TabNavItemSearchParam;
+  const currentSearchParam = searchParams.get('tab') as MyPageTabSearchParam;
 
-  const handleSearchParam = (searchParam: TabNavItemSearchParam) => {
+  const handleSearchParam = (searchParam: MyPageTabSearchParam) => {
     searchParams.set('tab', searchParam);
     setSearchParams(searchParams);
   };

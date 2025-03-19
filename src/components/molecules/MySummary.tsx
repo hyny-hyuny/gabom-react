@@ -1,7 +1,7 @@
 import React from 'react';
 import MySummaryDivider from '../atoms/MySummaryDivider';
 import MySummaryItem from '../atoms/MySummaryItem';
-import { SummaryList } from '@/types/mySummary';
+import { SummaryList } from '@/types/myPage';
 
 export interface MySummaryProps {
   summaryList: SummaryList;
