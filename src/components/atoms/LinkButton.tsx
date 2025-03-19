@@ -39,7 +39,8 @@ function LinkButton({
               isFilled === false && color === 'tertiary'
               ? `w-full h-11 bg-white text-tertiary border-1 border-tertiary disabled:text-gray-200 disabled:bg-gray-50 disabled:border-gray-200 label-md`
               : // default 버튼
-                `w-fit text-content-primary underline`
+                `w-fit text-content-primary underline`,
+        customClass
       )}
     >
       {children}
