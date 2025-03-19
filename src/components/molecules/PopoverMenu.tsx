@@ -6,10 +6,56 @@ export interface PopoverMenuProps {
   // 임시 옵셔널
   review?: { id: string };
   onDelete?: () => void;
+  linkPath?: string;
 }
 
-function PopoverMenu({ review, onDelete }: PopoverMenuProps) {
-  const popoverList: string[] = ['수정하기', '삭제하기'];
+function PopoverMenu({ review, onDelete, linkPath = '' }: PopoverMenuProps) {
+  const popoverList: string[] = ['수정하기', '다른 리스트', '삭제하기'];
+
+  const popoverMenuItems = popoverList.map((item, index) => {
+    let list;
+    if (item === '삭제하기') {
+      list = (
+        <Button
+          customClass={tm(
+            `w-full bg-transparent py-custom-3 px-custom-4`,
+            'text-red-500'
+          )}
+          label={item}
+          onClick={onDelete}
+        ></Button>
+      );
+    } else if (item === '수정하기') {
+      list = (
+        <LinkButton
+          customClass={tm(
+            `w-full bg-transparent py-custom-3 no-underline px-custom-4`
+          )}
+          label={item}
+          pathName={review?.id ? `/review/edit/${review.id}` : '#'}
+        ></LinkButton>
+      );
+    } else {
+      list = (
+        <LinkButton
+          customClass={tm(
+            `w-full bg-transparent py-custom-3 no-underline px-custom-4`
+          )}
+          label={item}
+          pathName={linkPath}
+        ></LinkButton>
+      );
+    }
+
+    return (
+      <li
+        key={index}
+        className="flex justify-center items-center bg-white whitespace-nowrap"
+      >
+        {list}
+      </li>
+    );
+  });
 
   return (
     <div
@@ -19,40 +65,7 @@ function PopoverMenu({ review, onDelete }: PopoverMenuProps) {
       )}
     >
       <ul className={tm('flex flex-col gap-[1px] bg-primary text-center')}>
-        {popoverList.map((item, index) => {
-          let list;
-          if (item === '삭제하기') {
-            list = (
-              <Button
-                customClass={tm(
-                  `w-full bg-transparent py-custom-3 px-custom-4`,
-                  'text-red-500'
-                )}
-                label={item}
-                onClick={onDelete}
-              ></Button>
-            );
-          } else {
-            list = (
-              <LinkButton
-                customClass={tm(
-                  `w-full bg-transparent py-custom-3 no-underline px-custom-4`
-                )}
-                label={item}
-                pathName={review?.id ? `/review/edit/${review.id}` : '#'}
-              ></LinkButton>
-            );
-          }
-
-          return (
-            <li
-              key={index}
-              className="flex justify-center items-center bg-white whitespace-nowrap"
-            >
-              {list}
-            </li>
-          );
-        })}
+        {popoverMenuItems}
       </ul>
     </div>
   );
