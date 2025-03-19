@@ -6,10 +6,11 @@ export interface PopoverMenuProps {
   // 임시 옵셔널
   review?: { id: string };
   onDelete?: () => void;
+  linkPath?: string;
 }
 
-function PopoverMenu({ review, onDelete }: PopoverMenuProps) {
-  const popoverList: string[] = ['수정하기', '삭제하기'];
+function PopoverMenu({ review, onDelete, linkPath = '' }: PopoverMenuProps) {
+  const popoverList: string[] = ['수정하기', '다른 리스트', '삭제하기'];
 
   return (
     <div
@@ -32,7 +33,7 @@ function PopoverMenu({ review, onDelete }: PopoverMenuProps) {
                 onClick={onDelete}
               ></Button>
             );
-          } else {
+          } else if (item === '수정하기') {
             list = (
               <LinkButton
                 customClass={tm(
@@ -40,6 +41,16 @@ function PopoverMenu({ review, onDelete }: PopoverMenuProps) {
                 )}
                 label={item}
                 pathName={review?.id ? `/review/edit/${review.id}` : '#'}
+              ></LinkButton>
+            );
+          } else {
+            list = (
+              <LinkButton
+                customClass={tm(
+                  `w-full bg-transparent py-custom-3 no-underline px-custom-4`
+                )}
+                label={item}
+                pathName={linkPath}
               ></LinkButton>
             );
           }
