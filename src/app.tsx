@@ -6,11 +6,13 @@ import ExhibitionPage from './components/pages/ExhibitionPage';
 import Layout from './layout/Layout';
 import EditProfilePage from './components/pages/EditProfilePage';
 import WriteReviewPage from './components/pages/WriteReviewPage';
+import LoginPage from './components/pages/LoginPage';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="login" element={<LoginPage />} />
         <Route path="/" element={<Layout />}>
           <Route path="review">
             <Route index element={<ReviewPage />} />
