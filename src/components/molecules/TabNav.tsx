@@ -3,8 +3,13 @@ import SaveIcon from '../../assets/save.svg?react';
 import PlaceIcon from '../../assets/place.svg?react';
 import ReviewIcon from '../../assets/review.svg?react';
 import TabNavItem from '../atoms/TabNavItem';
-import { useSearchParams } from 'react-router';
+import { SetURLSearchParams } from 'react-router';
 import { MyPageTabSearchParam } from '@/types/myPage';
+
+interface TabNavProps {
+  searchParams: URLSearchParams;
+  setSearchParams: SetURLSearchParams;
+}
 
 export type IconType = React.FC<React.SVGProps<SVGSVGElement>> | string;
 
@@ -21,9 +26,7 @@ const tabNavItems: TabNavItemData[] = [
   { searchParam: 'reservation', label: '예약', Icon: TimeIcon },
 ];
 
-function TabNav() {
-  
-  const [searchParams, setSearchParams] = useSearchParams();
+function TabNav({ searchParams, setSearchParams }: TabNavProps) {
   const currentSearchParam = searchParams.get('tab') as MyPageTabSearchParam;
 
   const handleSearchParam = (searchParam: MyPageTabSearchParam) => {
