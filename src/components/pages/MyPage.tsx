@@ -3,6 +3,7 @@ import TabNav from '../molecules/TabNav';
 import { useSearchParams } from 'react-router';
 import { useMemo } from 'react';
 import { MyPageTabSearchParam } from '@/types/myPage';
+import ReviewList from '../organisms/ReviewList';
 
 function MyPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,7 +14,7 @@ function MyPage() {
       searchParams.toString().replace('tab=', '') as MyPageTabSearchParam
     ) {
       case 'review':
-        return <span>review</span>;
+        return <ReviewList />;
       case 'reservation':
         return <span>hi</span>;
       case 'place':
