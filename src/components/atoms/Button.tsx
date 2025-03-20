@@ -4,7 +4,7 @@ import { ComponentProps } from 'react';
 type ButtonProps = ComponentProps<'button'> & {
   children?: React.ReactElement<React.SVGProps<SVGSVGElement>>;
   label?: string;
-  color?: string;
+  color?: 'primary' | 'tertiary';
   isMore?: boolean;
   isFilled?: boolean;
   isDisabled?: boolean;
@@ -14,7 +14,7 @@ type ButtonProps = ComponentProps<'button'> & {
 function Button({
   children,
   label = '',
-  color = '',
+  color, // 'primary' | 'tertiary'
   isMore = false,
   isFilled = false,
   isDisabled = false,
