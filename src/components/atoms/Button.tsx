@@ -12,6 +12,7 @@ type ButtonProps = ComponentProps<'button'> & {
 };
 
 function Button({
+  type,
   children,
   label = '',
   color, // 'primary' | 'tertiary'
@@ -48,7 +49,7 @@ function Button({
 
   return (
     <button
-      type="button"
+      type={type}
       disabled={isDisabled}
       className={tm(getButtonClass())}
       onClick={onClick}

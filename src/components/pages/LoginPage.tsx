@@ -3,8 +3,22 @@ import { tm } from '@/utils/tw-merge';
 import LabelInput from '../atoms/LabelInput';
 import Button from '../atoms/Button';
 import LinkButton from '../atoms/LinkButton';
+import { useState } from 'react';
 
 function LoginPage() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleUserEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+    setEmail(e.target.value);
+  };
+
+  const handleUserPw = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+    setPassword(e.target.value);
+  };
+
   return (
     <section
       className={tm(
@@ -21,16 +35,21 @@ function LoginPage() {
             type="email"
             containerClassName="mb-custom-8"
             placeholder="example@email.com"
+            value={email}
+            onChange={handleUserEmail}
           />
           <LabelInput
             label="비밀번호"
             type="password"
             containerClassName=""
             placeholder="8문자 이상, 특수 문자 포함"
+            value={password}
+            onChange={handleUserPw}
           />
         </fieldset>
         <div role="group">
           <Button
+            type="submit"
             label="로그인"
             color="tertiary"
             isFilled={true}
