@@ -3,10 +3,21 @@ import SearchBar from '../atoms/SearchBar';
 import ReviewCard from '../molecules/ReviewCard';
 import Input from '../atoms/Input';
 import Counter from '../molecules/Counter';
+import LabelInput from '../atoms/LabelInput';
 
 function ReviewPage() {
   const [searchText, setSearchText] = useState<string>('');
+  const [text, setText] = useState('');
   const [count, setCount] = useState(0);
+  const [isError, setIsError] = useState(false);
+
+  const handleOnBlur = () => {
+    setIsError(true);
+  };
+
+  const handleOnFocus = () => {
+    setIsError(false);
+  };
 
   return (
     <section>
@@ -16,6 +27,16 @@ function ReviewPage() {
         setSearchText={setSearchText}
       />
       <Input label="hi" />
+      <LabelInput
+        onBlur={handleOnBlur}
+        onFocus={handleOnFocus}
+        isError={isError}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        label="아이디"
+        message="하이"
+        type="password"
+      />
       <Counter count={count} setCount={setCount} minCount={2} maxCount={10} />
       <ReviewCard
         title="< 소행성이 빛을 내는 방법>전시를 다녀왔습니다. 두 줄 이상이 되면 ellipse 되나요????"
