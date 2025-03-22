@@ -43,7 +43,7 @@ function ReviewList() {
         setMonthFilter={setMonthFilter}
         setLatest={setIsLatest}
       />
-      <ul className="flex flex-col gap-3">
+      <ul className="py-6 px-4 flex flex-col gap-3">
         {reviews.map((item) => {
           return (
             <ReviewCard

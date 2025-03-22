@@ -31,9 +31,7 @@ function MyPage() {
     <section>
       <ProfileCard img={''} userName={'조구미'} />
       <TabNav searchParams={searchParams} setSearchParams={setSearchParams} />
-      <div role="group" className="py-6 px-4">
-        {renderMy}
-      </div>
+      {renderMy}
     </section>
   );
 }

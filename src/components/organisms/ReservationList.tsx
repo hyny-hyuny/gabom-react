@@ -39,14 +39,16 @@ function ReservationList() {
 
   useEffect(() => {
     void getReservations();
-  },[]);
+  }, []);
 
   return (
-    <ul>
-      {items.map((item) => {
-        return <li key={item.id}>{item.id}</li>;
-      })}
-    </ul>
+    <section>
+      <ul className="py-6 px-4">
+        {items.map((item) => {
+          return <li key={item.id}>{item.id}</li>;
+        })}
+      </ul>
+    </section>
   );
 }
 
