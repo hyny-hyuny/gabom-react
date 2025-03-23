@@ -30,7 +30,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="login" element={<LoginPage />} />
+        {session ? (
+          <Route path="*" element={<Navigate to="/exhibition" />} />
+        ) : (
+          <Route path="login" element={<LoginPage />} />
+        )}
         {session ? (
           <Route path="/" element={<Layout />}>
             <Route path="review">
