@@ -48,11 +48,11 @@ function LoginPage() {
     <section
       className={tm(
         'layout',
-        'px-custom-6 pt-[145px] flex flex-col items-center'
+        'px-custom-6 pt-[16vh] pb-[10vh] flex flex-col items-center'
       )}
     >
       <h2 className="sr-only">로그인</h2>
-      <Logo className="mb-[100px] flex-0" aria-label="가봄" />
+      <Logo className="mb-[12vh] flex-0" aria-label="가봄" />
       <form
         onSubmit={handleLogin}
         className="flex flex-col justify-between w-full flex-1"
