@@ -37,7 +37,6 @@ function LoginPage() {
         '존재하지 않는 계정이거나 이메일 또는 비밀번호가 올바르지 않습니다.'
       );
     } else {
-      alert('성공');
       await navigate('/exhibition');
     }
   };
