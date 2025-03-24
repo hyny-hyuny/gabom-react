@@ -5,6 +5,7 @@ import { useMemo } from 'react';
 import { MyPageTabSearchParam } from '@/types/myPage';
 import ReviewList from '../organisms/ReviewList';
 import ReservationList from '../organisms/ReservationList';
+import PlaceList from '../organisms/PlaceList';
 
 function MyPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -19,7 +20,7 @@ function MyPage() {
       case 'reservation':
         return <ReservationList />;
       case 'place':
-        return;
+        return <PlaceList />;
       case 'bookmark':
         return;
       default:
