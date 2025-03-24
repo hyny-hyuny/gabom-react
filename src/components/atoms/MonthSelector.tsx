@@ -6,7 +6,7 @@ interface DateSelectorProps {
   setMonthFilter: Dispatch<SetStateAction<string>>;
 }
 
-function DateSelector({ monthFilter, setMonthFilter }: DateSelectorProps) {
+function MonthSelector({ monthFilter, setMonthFilter }: DateSelectorProps) {
   const id = useId();
 
   const label = useMemo(() => {
@@ -22,7 +22,7 @@ function DateSelector({ monthFilter, setMonthFilter }: DateSelectorProps) {
       <DownIcon />
       <input
         id={id}
-        type="date"
+        type="month"
         className="absolute top-0 bottom-0 left-0 right-0 opacity-0"
         value={monthFilter}
         onChange={(e) => setMonthFilter(e.target.value)}
@@ -31,4 +31,4 @@ function DateSelector({ monthFilter, setMonthFilter }: DateSelectorProps) {
   );
 }
 
-export default DateSelector;
+export default MonthSelector;

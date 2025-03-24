@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import DateSelector from '../atoms/DateSelector';
+import MonthSelector from '../atoms/MonthSelector';
 import LatestToggle from '../atoms/LatestToggle';
 
 interface ListFilterProps {
@@ -17,7 +17,7 @@ function ListFilter({
 }: ListFilterProps) {
   return (
     <section className="flex flex-row justify-between bg-gray-50 px-4 py-3">
-      <DateSelector setMonthFilter={setMonthFilter} monthFilter={monthFilter} />
+      <MonthSelector setMonthFilter={setMonthFilter} monthFilter={monthFilter} />
 
       <LatestToggle value={latest} setValue={setLatest} />
     </section>
