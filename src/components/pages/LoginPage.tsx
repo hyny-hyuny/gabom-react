@@ -13,8 +13,6 @@ function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
-  console.log(`테스트 계정 : [ID] juju@gabom.com / [PW] juju`);
-
   const handleUserEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setError(null);
     setEmail(e.target.value);
