@@ -6,6 +6,7 @@ import { MyPageTabSearchParam } from '@/types/myPage';
 import ReviewList from '../organisms/ReviewList';
 import ReservationList from '../organisms/ReservationList';
 import PlaceList from '../organisms/PlaceList';
+import BookmarkList from '../organisms/BookmarkList';
 
 function MyPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -22,7 +23,7 @@ function MyPage() {
       case 'place':
         return <PlaceList />;
       case 'bookmark':
-        return;
+        return <BookmarkList />;
       default:
         return <div>error</div>;
     }
