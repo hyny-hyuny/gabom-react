@@ -12,15 +12,14 @@ type ButtonProps = ComponentProps<'button'> & {
 };
 
 function Button({
-  type,
   children,
   label = '',
   color, // 'primary' | 'tertiary'
   isMore = false,
   isFilled = false,
-  isDisabled = false,
   customClass = '',
   onClick,
+  ...buttonProps
 }: ButtonProps) {
   // 더보기, 리뷰쓰기, 예약하기, 로그인, 다음, 전시 더보기, 사진 추가하기 등
 
@@ -48,12 +47,7 @@ function Button({
     );
 
   return (
-    <button
-      type={type}
-      disabled={isDisabled}
-      className={tm(getButtonClass())}
-      onClick={onClick}
-    >
+    <button className={tm(getButtonClass())} onClick={onClick} {...buttonProps}>
       {label}
       {children}
     </button>
